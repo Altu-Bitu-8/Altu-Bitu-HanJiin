@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void check(string str, stack<char> &s){
+void check(string &str, stack<char> &s){
     for(char ch : str){
             if(ch == '(' || ch == '['){
                 s.push(ch);
