@@ -10,13 +10,14 @@ using namespace std;
 vector<int> getPrime(vector<bool> &is_prime) {
     vector<int> primes;
 
-    for(int i = 2; i <= sqrt(MAX); i++) {
-        if(is_prime[i]) {
-            primes.push_back(i);
-            for(int j = i * i; j <= MAX; j += i) {
-                if(!is_prime[i]) continue;
-                is_prime[j] = false;
-            }
+    for(int i = 2; i <= sqrt(MAX); i++){
+        if(!is_prime[i]){
+            continue;
+        }
+        primes.push_back(i);
+        for(int j = i * i; j <= MAX; j += i){
+            if(!is_prime[j]) continue;
+            is_prime[j] = false;
         }
     }
     return primes;
